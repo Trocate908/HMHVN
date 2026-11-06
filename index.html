@@ -81,11 +81,22 @@ dl{margin:0}dt{font-weight:600;margin-top:14px}dd{margin:2px 0 0;opacity:.85}
 .motto{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(1.5rem,3.6vw,2.2rem);margin:56px 0 22px}
 footer{padding:26px 0 90px;background:var(--deep);color:rgba(238,242,234,.65);font-size:.92rem;border-top:1px solid rgba(255,255,255,.1)}
 .wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;background:#25a55a;color:#fff;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.28)}
-dialog{border:0;padding:0;background:transparent;max-width:94vw;max-height:92vh}
+dialog{border:0;padding:clamp(10px,2vw,18px);background:var(--deep);width:min(94vw,1100px);max-width:94vw;max-height:94svh;border-radius:10px;box-shadow:0 20px 70px rgba(0,0,0,.35)}
 dialog::backdrop{background:rgba(0,0,0,.86)}
-dialog img{max-width:94vw;max-height:82vh;display:block;margin:0 auto}
-.lb{display:flex;justify-content:center;gap:10px;margin-top:12px}
-.lb button{font:inherit;padding:9px 18px;border:0;background:#fff;color:#111;cursor:pointer}
+dialog img{width:auto;max-width:100%;max-height:calc(94svh - 92px);display:block;margin:0 auto;object-fit:contain;border-radius:4px}
+.lb{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.lb button,.lb a{font:inherit;min-height:44px;padding:9px 18px;border:0;background:#fff;color:#111;cursor:pointer;text-align:center;flex:0 1 auto}
+@media(max-width:699px){
+  .filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:22px}
+  .filters button{min-height:44px;padding:10px 8px;font-size:.86rem;line-height:1.2}
+  .filters button:last-child{grid-column:1/-1}
+  .gal{column-gap:8px;margin-top:26px}
+  .g{margin-bottom:8px}
+  dialog{padding:8px;width:calc(100vw - 20px);max-height:calc(100svh - 20px)}
+  dialog img{max-width:100%;max-height:calc(100svh - 104px)}
+  .lb{gap:8px;margin-top:8px}
+  .lb button,.lb a{flex:1 1 120px;padding:10px 12px;font-size:.9rem}
+}
 
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .filters button{font:inherit;font-size:.95rem;padding:9px 18px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;border-radius:999px}
